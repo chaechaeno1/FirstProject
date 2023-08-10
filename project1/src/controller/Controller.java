@@ -41,7 +41,7 @@ public class Controller {
             view = customerService.signUp();
             break;
          case View.MANAGE_LOGIN:
-            view = manageService.manager();
+            view = adminService.admindControl();
             break;
 
          }
@@ -53,7 +53,7 @@ public class Controller {
       System.out.println("=*=*=*=*=*=*<<버스타요터미널시스템>>*=*=*=*=*=*=");
       System.out.println("=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=*=");
       System.out.println();
-      System.out.println("1.로그인     2.회원가입     5.관리자용");
+      System.out.println("1.로그인     2.회원가입     5.관리자용 접속");
       System.out.println();
       System.out.println("-------------------------------------------");
       System.out.print("번호 입력 >> ");

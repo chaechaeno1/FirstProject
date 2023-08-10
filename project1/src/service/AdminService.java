@@ -37,15 +37,44 @@ public class AdminService {
 	// 메뉴선택 - 노선추가/삭제
 
 	public int admindControl() {
-		// 로그인
-		// 메뉴선택
-		// 노선 저장
+		System.out.println("관리자 페이지 입니다.");
+		// 1. 로그인
+		login();
+		System.out.println("로그인에 성공했습니다.");
+		
+		// 2. 메뉴선택
+		selectMenu();
+
+		// 3. 노선 등록
 		submitsv();
-		// 노선 수정
-		// 노선 삭제
+		// 4. 노선 수정
+		
+		// 5. 노선 삭제
+		deletesv();
 
 		return 1;
 	}
+
+	
+	
+	public int login() { //로그인 실패 코드짜기 (while-break)
+		System.out.println("로그인 해주세요!");
+		return 1;
+	}
+
+	public int selectMenu() {
+		System.out.println("관리자메뉴를 선택해주세요.");
+		System.out.println("1. 노선 저장 2. 노선 삭제");
+		return 1;}
+
+	public int deletesv() {
+		//기등록된 운행정보 호출하여 리스트 출력
+		System.out.println("운행정보 삭제");
+		return 1;}
+	
+	
+	
+	
 
 	public int submitsv() {
 
