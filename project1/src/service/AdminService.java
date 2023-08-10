@@ -66,6 +66,9 @@ public class AdminService {
 			// todo 홈으로 이동
 			return 1;
 
+			/**
+			 * 깃헙 충돌용 주석
+			 */
 		} else {
 			// 버스노선 리스트들이 출력됨
 			for (Map<String, Object> item : routelist) {
