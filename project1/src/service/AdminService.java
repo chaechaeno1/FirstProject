@@ -29,6 +29,25 @@ public class AdminService {
 
     //AdminService의 메인
     //노선 -> 운행날짜 -> 운행시간 -> 버스 선택
+	 // 컨트롤러 -> 어드민페이지 -> 어드민 로그인 -> 노선 추가 / 삭제 기능
+    
+	//로그인을 해주세요
+	//검증
+	//메뉴선택 - 노선추가/삭제
+	 
+    
+    public int admindControl() {
+    	//로그인
+    	//메뉴선택
+    	//노선 저장
+    	submitsv();
+    	//노선 수정
+    	//노선 삭제
+    		
+    	return 1;
+    }
+    
+    
     public int submitsv() {
        
         System.out.println("** 1. 노선을 선택해주세요 (노선 ID를 입력해주세요) **");
@@ -37,6 +56,10 @@ public class AdminService {
         System.out.println("노선ID\t\t노선명\t\t비용\t\t승차홈\t\t소요시간");
         System.out.println("==============================================================================");
         List<Map<String, Object>> routelist = dao.route();
+        
+        
+        //수정할 운행정보 선택하세요
+        //기등록된 운행정보 조회
 
         if (routelist == null) {
             System.out.println("등록된 버스 배차 목록이 없습니다.");
@@ -60,6 +83,7 @@ public class AdminService {
             List<Object> param = new ArrayList<>();
 
             System.out.println("==============================================================================");
+            while (true) {
             System.out.print("노선ID 입력: ");
             String rtIdInput = ScanUtil.nextLine().trim();
 
@@ -76,21 +100,25 @@ public class AdminService {
             if (!isInputValid) {
                 System.out.println("노선ID 입력오류!!\n리스트에 있는 노선ID를 확인해주시기 바랍니다.");
                 System.out.println("===========================================================");
-                return 1;
             } else {
                 System.out.println(">>선택된 노선ID : "+rtIdInput);
                 param.add(rtIdInput);
+                break;
             }
             
             System.out.println("==============================================================================");       
             System.out.println();
             System.out.println("** 2. 운행날짜를 입력해주세요 (예시:20230810) **");
+            String dateInput ="";
+            while (true) {
             System.out.print("운행날짜 입력 : ");
-            String dateInput = ScanUtil.nextLine().trim();
+            dateInput = ScanUtil.nextLine().trim();
 
             if (dateInput.length() != 8) {
-               System.out.println("날짜 형식에 맞춰 다시 입력하세요.");
-            return 1;
+               System.out.println("날짜 형식에 맞춰 다시 입력하세요. (예시:20230810)");  
+            }else {
+            	break;
+            }
             }
 
             
@@ -103,6 +131,8 @@ public class AdminService {
             //운행시간: 06:00 ~ 23:00로 제한            
             getTime();
             
+            //시간값 참거짓 추가해서 오류 출력하고 while문 돌리기
+//            while (true) {
             System.out.print("운행시간 입력 : ");
             String timeInput = ScanUtil.nextLine();
             
@@ -130,6 +160,7 @@ public class AdminService {
             }
             
             System.out.println("==============================================================================");
+            while (true) {
             System.out.print("버스ID 입력 : ");
             String busInput = ScanUtil.nextLine().trim();
             
@@ -146,10 +177,11 @@ public class AdminService {
             if (!busInputValid) {
                 System.out.println("버스ID 입력오류!!\n리스트에 있는 버스ID를 확인해주시기 바랍니다.");
                 System.out.println("===========================================================");
-                return 1;
+
             } else {
                 System.out.println(">>선택된 버스ID : "+busInput);
                 param.add(busInput);
+                break;
             }
             
             //SV_ID 생성
@@ -167,9 +199,14 @@ public class AdminService {
            
         }
             
-        
+
+            
       return 1;
+      
     }
+
+    
+    
     
     
     
